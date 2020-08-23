@@ -1,0 +1,29 @@
+version: '2.4'
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    image: worker_thread_external_balancer_server_2
+    container_name: worker_thread_external_balancer_server_2
+    restart: always
+    ports:
+      - "8001:8001"
+      - "8002:8002"
+      - "8003:8003"
+      - "8004:8004"
+    cpus: '4'
+  haproxy:
+    build:
+      context: ./haproxy
+      dockerfile: ./Dockerfile
+    image: worker_thread_external_balancer_haproxy
+    container_name: worker_thread_external_balancer_haproxy
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+    restart: always
+    cpus: '1'
