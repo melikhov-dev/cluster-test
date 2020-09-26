@@ -7,9 +7,9 @@ Replacing `<method>` with the desired one, run the following command:
 ```sh
 docker-compose -f <method>/docker-compose.yml up --remove-orphans
 ```
-### Endpoint test
+### Test endpoint
 ```sh
-curl http://127.0.0.1:80
+curl 'http://127.0.0.1:80/server.js?input=500'
 ```
 
 ### Using autocannon to get metrics
@@ -31,11 +31,11 @@ Quick __autocannon__ reference:
 ##### Examples
 - By time
 ```sh
-autocannon -c 500 -d 20 -l http://127.0.0.1:80
+autocannon -c 500 -d 20 -l 'http://127.0.0.1:80/server.js?input=500'
 ```
 - By amount of requests
 ```sh
-autocannon -c 100 -a 1000 -l http://127.0.0.1:80
+autocannon -c 100 -a 1000 -l 'http://127.0.0.1:80/server.js?input=500'
 ```
 
 ## Resources
