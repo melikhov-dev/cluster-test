@@ -11,9 +11,10 @@ docker-compose -f <method>/docker-compose.yml up --remove-orphans
 ```sh
 curl 'http://127.0.0.1:80/server.js?input=500'
 ```
+*Default input=500*
 
 ### Using autocannon to get metrics
-Quick __autocannon__ reference:
+Quick reference:
 ```
   -c/--connections NUM
         The number of concurrent connections to use. default: 10.
@@ -31,11 +32,11 @@ Quick __autocannon__ reference:
 ##### Examples
 - By time
 ```sh
-autocannon -c 500 -d 20 -l 'http://127.0.0.1:80/server.js?input=500'
+autocannon -c 500 -d 20 'http://127.0.0.1:80/server.js?input=1000'
 ```
 - By amount of requests
 ```sh
-autocannon -c 100 -a 1000 -l 'http://127.0.0.1:80/server.js?input=500'
+autocannon -c 100 -a 1000 'http://127.0.0.1:80/server.js?input=1000'
 ```
 
 ## Resources

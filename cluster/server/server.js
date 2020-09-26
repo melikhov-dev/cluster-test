@@ -1,12 +1,14 @@
 /* eslint-disable no-unused-vars */
 const cluster = require('cluster');
 const http = require('http');
+const url = require('url');
 
 const numCPUs = 5;
 const bench = require('./bench');
 
 const host = '0.0.0.0';
 const port = 8000;
+const defaultInputValue = 500;
 
 const start = async function startServer() {
   // Cluster
@@ -23,7 +25,8 @@ const start = async function startServer() {
     });
   } else {
     http.createServer((request, response) => {
-      bench(500);
+      const inputValue = url.parse(request.url, true).query.input;
+      bench(inputValue ? Number(inputValue) : defaultInputValue);
       response.end(JSON.stringify('OK'));
     }).listen(port, host, () => {
       console.log(`Node.js Standard Library HTTP server running on port: ${port}`);
