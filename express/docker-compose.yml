@@ -1,0 +1,11 @@
+version: '2.4'
+services:
+  server:
+    build:
+      context: ./server
+    environment:
+      NODE_ENV: production
+    restart: always
+    ports:
+      - "80:8000"
+    cpus: '5'
