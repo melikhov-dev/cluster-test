@@ -9,7 +9,7 @@ docker-compose -f <method>/docker-compose.yml up --remove-orphans
 ```
 ### Endpoint test
 ```sh
-curl http:127.0.0.1:80
+curl http://127.0.0.1:80
 ```
 
 ### Using autocannon to get metrics
@@ -41,5 +41,5 @@ autocannon -c 100 -a 1000 -l http://127.0.0.1:80
 ## Resources
 * [node-worker-threads-pool](https://github.com/SUCHMOKUO/node-worker-threads-pool)
 * [autocannon](https://github.com/mcollina/autocannon)
-* [devschacht](https://www.youtube.com/watch?v=K2bZ4alJUkA&t=526s)
+* [Scaling Right by devschacht](https://www.youtube.com/watch?v=K2bZ4alJUkA&t=526s)
 * [pm2](https://github.com/Unitech/pm2)
