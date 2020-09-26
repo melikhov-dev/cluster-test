@@ -3,11 +3,8 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
-    image: worker_thread_no_balancer_server
-    container_name: worker_thread_no_balancer_server
     restart: always
     ports:
       - "80:8000"
